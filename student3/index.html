@@ -10,20 +10,34 @@
   <div class="container">
     <div class="left-panel">
       <div class="info-box" id="infoBox"></div>
+      
       <div class="usage-box">
         <h2>System Usage</h2>
+        
         <div class="bar-block">
-          <label>CPU Usage</label>
+          <div class="bar-header">
+            <label>CPU Usage</label>
+            <span class="usage-text" id="cpuText">Loading...</span>
+          </div>
           <div class="bar-bg"><div class="bar" id="cpuBar"></div></div>
         </div>
+
         <div class="bar-block">
-          <label>Memory Usage</label>
+          <div class="bar-header">
+            <label>Memory Usage</label>
+            <span class="usage-text" id="memText">Loading...</span>
+          </div>
           <div class="bar-bg"><div class="bar" id="memBar"></div></div>
         </div>
+
         <div class="bar-block">
-          <label>Disk Usage</label>
+          <div class="bar-header">
+            <label>Disk Usage</label>
+            <span class="usage-text" id="diskText">Loading...</span>
+          </div>
           <div class="bar-bg"><div class="bar" id="diskBar"></div></div>
         </div>
+
       </div>
     </div>
 
