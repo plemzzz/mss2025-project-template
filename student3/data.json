@@ -1,12 +1,12 @@
 {
   "month": "Nov",
   "day": "20",
-  "time": "11:45:39",
+  "time": "12:12:47",
   "year": "2025",
   "cpu_used": ".50",
-  "mem_used_per": "5.36",
-  "mem_used_mb": "213232",
-  "mem_total_mb": "3425864",
+  "mem_used_per": "4.74",
+  "mem_used_mb": "187760",
+  "mem_total_mb": "3450552",
   "disk_used_gb": "6.5G",
   "disk_total_gb": "20G"
 }
