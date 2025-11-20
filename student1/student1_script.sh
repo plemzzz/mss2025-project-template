@@ -4,7 +4,7 @@ TEMPLATE_FILE="/home/kritsakorn/github/mss2025-project-template/student1/templat
 FILE="/home/kritsakorn/github/mss2025-project-template/student1/student1.html"
 
 HOSTNAME=$(hostname)
-current_time=$(date)
+current_time=$(TZ=Asia/Bangkok date)
 CPU_USAGE=$(top -bn1 | grep "Cpu(s)" | awk '{print $2 + $4}')
 
 # 3. Memory
