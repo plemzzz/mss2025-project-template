@@ -1,43 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>System Dashboard</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Server Status</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-<div class="container">
-    <h1>System Status Dashboard</h1>
-    <p id="datetime"></p>
-
-    <div class="section">
-        <h2>System Information</h2>
-        <p><strong>OS:</strong> <span id="os"></span></p>
-        <p><strong>Kernel:</strong> <span id="kernel"></span></p>
-        <p><strong>CPU:</strong> <span id="cpu"></span></p>
-        <p><strong>GPU:</strong> <span id="gpu"></span></p>
-        <p><strong>Uptime:</strong> <span id="uptime"></span></p>
+  <div class="container">
+    <div class="left-panel">
+      <div class="info-box" id="infoBox"></div>
+      <div class="usage-box">
+        <h2>System Usage</h2>
+        <div class="bar-block">
+          <label>CPU Usage</label>
+          <div class="bar-bg"><div class="bar" id="cpuBar"></div></div>
+        </div>
+        <div class="bar-block">
+          <label>Memory Usage</label>
+          <div class="bar-bg"><div class="bar" id="memBar"></div></div>
+        </div>
+        <div class="bar-block">
+          <label>Disk Usage</label>
+          <div class="bar-bg"><div class="bar" id="diskBar"></div></div>
+        </div>
+      </div>
     </div>
 
-    <div class="section">
-        <h2>Usage</h2>
-
-        <!-- CPU -->
-        <p><strong>CPU Usage:</strong> <span id="cpu_used_text"></span>%</p>
-        <div class="progress"><div id="cpu_bar" class="progress-bar"></div></div>
-
-        <!-- Memory -->
-        <p><strong>Memory Usage:</strong> <span id="mem_used_text"></span>%</p>
-        <div class="progress"><div id="mem_bar" class="progress-bar"></div></div>
-
-        <!-- Disk -->
-        <p><strong>Disk Usage:</strong> <span id="disk_used_text"></span></p>
-        <div class="progress"><div id="disk_bar" class="progress-bar"></div></div>
+    <div class="right-panel">
+      <h2>Process List (ps)</h2>
+      <table id="psTable">
+        <thead>
+          <tr>
+            <th>PID</th>
+            <th>PPID</th>
+            <th>CPU%</th>
+            <th>MEM%</th>
+            <th>Command</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
     </div>
-</div>
+  </div>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
-
