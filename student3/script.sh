@@ -3,9 +3,9 @@
 JSON_FILE="/home/midfield/gitHub/mss2025-project-template/student3/data.json"
 
 #Date
-DATA=$(date | cut -d' ' -f3,2,4,7)
-read -r month day time year <<< "$DATA"
-echo "LastUpdate: $year/ $month/ $day/ $time pm."
+DATA=$(date | cut -d' ' -f3,2,4,5,7)
+read -r month day time clock year <<< "$DATA"
+echo "LastUpdate: $year/ $month/ $day/ $time$clock"
 
 
 #Memused
@@ -36,11 +36,25 @@ cpu=$(neofetch --stdout | grep "CPU:" | cut -d: -f2- | xargs)
 gpu=$(neofetch --stdout | grep "GPU:" | cut -d: -f2- | xargs)
 upTime=$(neofetch --stdout | grep "Uptime:" | cut -d: -f2- | xargs)
 
+
+#ps
+psData=$(ps -eo pid,ppid,pcpu,pmem,comm --sort=-pcpu | head -n 11)
+
+psJson=$(echo "$psData" | tail -n +2 |
+awk 'BEGIN { print "[" }
+{
+    printf "  {\"pid\":\"%s\", \"ppid\":\"%s\", \"cpu\":\"%s\", \"mem\":\"%s\", \"command\":\"%s\"}", $1,$2,$3,$4,$5
+    if (NR < 10) printf ",\n"; else printf "\n"
+}
+END { print "]" }')
+
+
 cat > $JSON_FILE << EOF
 {
+  "ps": $psJson,
   "month": "$month",
   "day": "$day",
-  "time": "$time",
+  "time": "$time$clock",
   "year": "$year",
   "cpu_used": "$(echo "$CpuUsed" | tr -d '\n\r')",
   "mem_used_per": "$MemUsedPer",

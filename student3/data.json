@@ -1,17 +1,29 @@
 {
+  "ps": [
+  {"pid":"6597", "ppid":"6542", "cpu":"0.4", "mem":"0.1", "command":"sshd"},
+  {"pid":"666", "ppid":"1", "cpu":"0.1", "mem":"0.2", "command":"vmtoolsd"},
+  {"pid":"8502", "ppid":"2", "cpu":"0.1", "mem":"0.0", "command":"kworker/1:0-events"},
+  {"pid":"1", "ppid":"0", "cpu":"0.0", "mem":"0.3", "command":"systemd"},
+  {"pid":"7071", "ppid":"2", "cpu":"0.0", "mem":"0.0", "command":"kworker/0:0-cgwb_release"},
+  {"pid":"7095", "ppid":"2", "cpu":"0.0", "mem":"0.0", "command":"kworker/0:3-events"},
+  {"pid":"6598", "ppid":"6597", "cpu":"0.0", "mem":"0.1", "command":"bash"},
+  {"pid":"7090", "ppid":"2", "cpu":"0.0", "mem":"0.0", "command":"kworker/1:1-rcu_par_gp"},
+  {"pid":"8421", "ppid":"1", "cpu":"0.0", "mem":"0.5", "command":"packagekitd"},
+  {"pid":"433", "ppid":"1", "cpu":"0.0", "mem":"0.4", "command":"systemd-journal"}
+],
   "month": "Nov",
   "day": "20",
-  "time": "01:41:16",
+  "time": "10:38:32PM",
   "year": "2025",
-  "cpu_used": ".51",
-  "mem_used_per": "4.95",
-  "mem_used_mb": "196256",
-  "mem_total_mb": "3406344",
+  "cpu_used": ".50",
+  "mem_used_per": "4.77",
+  "mem_used_mb": "189032",
+  "mem_total_mb": "3458720",
   "disk_used_gb": "6.7G",
   "disk_total_gb": "20G",
   "os": "Ubuntu 24.04.3 LTS x86_64",
   "kernel": "6.8.0-87-generic",
   "cpu": "AMD Ryzen 5 3550H with Radeon Vega Mobile Gfx (2) @ 2.096GHz",
   "gpu": "00:0f.0 VMware SVGA II Adapter",
-  "upTime": "5 hours, 20 mins"
+  "upTime": "53 mins"
 }
