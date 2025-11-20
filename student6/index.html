@@ -130,43 +130,43 @@
     <div class="header">
         <h1><i class="fa-solid fa-chart-line"></i> System Dashboard</h1>
         <div class="server-info">
-            <div class="badge"><i class="fa-solid fa-user"></i> ${HOSTNAME}</div>
-            <div class="badge"><i class="fa-solid fa-wifi"></i> ${IP_ADDR}</div>
-            <div class="badge"><i class="fa-regular fa-clock"></i> ${SERVER_UPTIME}</div>
+            <div class="badge"><i class="fa-solid fa-user"></i> chisanupong</div>
+            <div class="badge"><i class="fa-solid fa-wifi"></i> 192.168.230.129</div>
+            <div class="badge"><i class="fa-regular fa-clock"></i> 3 hours, 48 minutes</div>
         </div>
     </div>
 
     <div class="metrics-grid">
         <div class="card">
             <div class="card-header"><i class="fa-solid fa-microchip" style="color:#ff5e62"></i> CPU Load</div>
-            <div class="big-stat">${CPU_USAGE}%</div>
+            <div class="big-stat">0%</div>
             <span class="sub-stat">Processing Power Used</span>
             <div class="progress-container">
-                <div class="progress-fill cpu-color" style="width: ${CPU_USAGE}%;"></div>
+                <div class="progress-fill cpu-color" style="width: 0%;"></div>
             </div>
         </div>
 
         <div class="card">
             <div class="card-header"><i class="fa-solid fa-memory" style="color:#56ccf2"></i> Memory</div>
-            <div class="big-stat">${MEM_USAGE}%</div>
-            <span class="sub-stat">Total Available: ${MEM_TOTAL}</span>
+            <div class="big-stat">12.51%</div>
+            <span class="sub-stat">Total Available: 3.8Gi</span>
             <div class="progress-container">
-                <div class="progress-fill ram-color" style="width: ${MEM_USAGE}%;"></div>
+                <div class="progress-fill ram-color" style="width: 12.51%;"></div>
             </div>
         </div>
 
         <div class="card">
             <div class="card-header"><i class="fa-solid fa-database" style="color:#38ef7d"></i> Storage</div>
-            <div class="big-stat">${DISK_USAGE}%</div>
-            <span class="sub-stat">Space Used (Total: ${DISK_TOTAL})</span>
+            <div class="big-stat">36%</div>
+            <span class="sub-stat">Space Used (Total: 20G)</span>
             <div class="progress-container">
-                <div class="progress-fill disk-color" style="width: ${DISK_USAGE}%;"></div>
+                <div class="progress-fill disk-color" style="width: 36%;"></div>
             </div>
         </div>
     </div>
 
     <div class="footer">
-        Last Update: <strong>${LAST_UPDATE}</strong> | Path: /student6
+        Last Update: <strong>2025-11-20 13:47:01</strong> | Path: /student6
     </div>
 </div>
 
