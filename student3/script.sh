@@ -54,7 +54,7 @@ cat > $JSON_FILE << EOF
   "ps": $psJson,
   "month": "$month",
   "day": "$day",
-  "time": "$time$clock",
+  "time": "$time $clock",
   "year": "$year",
   "cpu_used": "$(echo "$CpuUsed" | tr -d '\n\r')",
   "mem_used_per": "$MemUsedPer",

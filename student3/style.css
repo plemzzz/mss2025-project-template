@@ -1,123 +1,194 @@
-/* นำเข้าฟอนต์สวยๆ จาก Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@500;600;700&display=swap');
+/* 1. นำเข้าฟอนต์ (เหมือนเดิม) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap');
 
+/* 2. ตั้งค่าพื้นฐาน (หัวใจสำคัญของการจัดกลางและแก้ล้น) */
 body {
   margin: 0;
-  height: 100vh;
-  background-color: #f4f7f9; /* พื้นหลังใหญ่ยังคงเป็นเทาอ่อน เพื่อดันให้กล่องดูเด่น */
+  /* ใช้ min-height แทน height เพื่อให้ scroll ได้ถ้าเนื้อหายาวเกินจอ */
+  min-height: 100vh; 
+  background-color: #f4f7f9;
   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
   color: #334155;
   -webkit-font-smoothing: antialiased;
-}
-
-.container {
-  display: grid;
-  grid-template-columns: 40% 60%;
-  height: 100vh;
-  max-width: 1600px;
-  margin: auto;
-  padding: 20px;
+  
+  /* เทคนิคจัดให้อยู่กลางจอทั้งแนวตั้งและแนวนอน */
+  display: flex;
+  justify-content: center; /* จัดกลางแนวนอน */
+  align-items: center;     /* จัดกลางแนวตั้ง (จะเห็นผลชัดถ้าจอใหญ่) */
+  
+  /* เพิ่มขอบรอบหน้าจอ ไม่ให้เนื้อหาชิดขอบเกินไป */
+  padding: 30px; 
   box-sizing: border-box;
 }
 
-.left-panel {
+/* 3. Layout หลัก (Grid) - กลับไปใช้ขนาดใหญ่เดิม */
+.container {
   display: grid;
-  grid-template-rows: auto 1fr;
-  padding: 20px;
-  gap: 24px;
+  grid-template-columns: 40% 60%; /* คงสัดส่วนเดิม 40/60 */
+  
+  /* ให้กว้างได้เต็มที่ แต่ไม่เกิน 1600px (ค่าเดิมที่คุณชอบ) */
+  width: 100%;
+  max-width: 1600px;
+  
+  gap: 24px; /* กลับไปใช้ระยะห่างขนาดใหญ่เดิม */
+  /* margin: auto; ไม่ต้องใช้แล้ว เพราะ body จัดกลางให้แล้ว */
 }
 
-/* --- ส่วนที่แก้ไขสำหรับกล่องทางซ้าย --- */
-.info-box, .usage-box {
-  /* ลบ background: #ffffff; เดิมออก */
-  
-  /* --- แก้ไข: เปลี่ยนเป็น Gradient สีฟ้าอ่อน --- */
-  /* ไล่สีจากมุมซ้ายบน (ฟ้าอ่อนมาก) ไปมุมขวาล่าง (ขาว) */
-  background: linear-gradient(135deg, #eef7ff, #ffffff); 
-  
-  padding: 32px;
-  border-radius: 16px;
-  /* ปรับเงาให้เข้ากับพื้นหลังใหม่ (ให้อารมณ์แสงสีฟ้ากระทบ) */
-  box-shadow: 0 10px 15px -3px rgba(164, 197, 236, 0.1), 0 4px 6px -2px rgba(164, 197, 236, 0.05);
-  border: 1px solid #dbeafe; /* เปลี่ยนขอบเป็นสีฟ้าจางๆ */
-  color: #475569;
+/* --- Responsive: ถ้าหน้าจอเล็ก (เช่น Tablet แนวตั้ง) ให้เรียงลงมาเป็นแนวตั้ง --- */
+@media (max-width: 1024px) {
+  .container {
+    grid-template-columns: 1fr; /* เปลี่ยนเป็น 1 คอลัมน์ */
+    max-width: 800px; /* จำกัดความกว้างไม่ให้ยาวเกินไปเวลาเรียงเดี่ยว */
+  }
+}
+
+/* 4. Panel ฝั่งซ้าย (เหมือนเดิม) */
+.left-panel {
+  display: grid;
+  gap: 24px; /* ระยะห่างเดิม (ใหญ่) */
+}
+
+/* Panel ฝั่งขวา (เหมือนเดิม) */
+.right-panel {
   display: flex;
   flex-direction: column;
 }
 
-h1, h2, h3 {
-  font-family: 'Poppins', sans-serif;
-  color: #1e293b;
-  margin-top: 0;
-  font-weight: 600;
-  letter-spacing: -0.5px;
+/* 5. Box Style (กลับไปใช้ Padding ใหญ่เดิม) */
+.info-box, .usage-box {
+  background: linear-gradient(135deg, #eef7ff, #ffffff);
+  
+  padding: 32px; /* กลับมาใช้ 32px (ใหญ่) */
+  
+  border-radius: 16px;
+  box-shadow: 0 10px 15px -3px rgba(164, 197, 236, 0.15), 0 4px 6px -2px rgba(164, 197, 236, 0.05);
+  border: 1px solid #dbeafe;
+  color: #475569;
+  display: flex;
+  flex-direction: column;
+  /* เพิ่มนิดนึง จัดเนื้อหาภายในให้ดูกลางๆ สวยงาม */
+  justify-content: center; 
 }
 
+/* 6. Typography (กลับไปใช้ขนาดใหญ่เดิม) */
+h1, h2, h3 {
+  font-family: 'Poppins', sans-serif;
+  color: #1e40af;
+  margin-top: 0;
+  margin-bottom: 20px; /* ระยะห่างเดิม (ใหญ่) */
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  border-bottom: 2px solid #e0f2fe;
+  padding-bottom: 10px;
+  font-size: 1.5rem; /* ขนาดฟอนต์เดิม (ใหญ่) */
+}
+
+/* Info Text Style (กลับไปใช้ขนาดใหญ่เดิม) */
+.info-box p {
+  display: grid;
+  grid-template-columns: 100px 1fr; /* คอลัมน์หัวข้อกว้างเดิม (ใหญ่) */
+  gap: 16px; /* ระยะห่างเดิม (ใหญ่) */
+  margin: 12px 0;
+  font-size: 1rem; /* ขนาดฟอนต์เดิม (ใหญ่) */
+  align-items: start;
+  border-bottom: 1px dashed #e2e8f0;
+  padding-bottom: 8px;
+}
+
+.info-box p:last-child {
+  border-bottom: none;
+}
+
+.info-box strong {
+  color: #1e3a8a;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.info-box span {
+  text-align: right;
+  color: #475569;
+  word-break: break-word;
+  line-height: 1.5;
+}
+
+/* 7. Usage Bar Style (เหมือนเดิม) */
 .bar-block {
-  margin: 20px 0;
+  margin: 20px 0; /* ระยะห่างเดิม (ใหญ่) */
+}
+
+.bar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.bar-header label {
+  font-weight: 600;
+  color: #334155;
+  font-size: 0.95rem; /* ขนาดฟอนต์เดิม (ใหญ่) */
+}
+
+.usage-text {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #2563eb;
+  font-family: 'Inter', sans-serif;
+  background: rgba(37, 99, 235, 0.1);
+  padding: 4px 8px;
+  border-radius: 6px;
 }
 
 .bar-bg {
   width: 100%;
-  height: 12px;
+  height: 12px; /* ความสูงหลอดเดิม (ใหญ่) */
   background: #e2e8f0;
   border-radius: 6px;
   overflow: hidden;
-  border: 1px solid #dbeafe; /* เพิ่มขอบให้หลอดดูคมขึ้นบนพื้นหลังใหม่ */
 }
 
 .bar {
   height: 100%;
-  background: linear-gradient(90deg, #3b82f6, #2563eb);
+  background: linear-gradient(90deg, #60a5fa, #2563eb);
   width: 0%;
-  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 6px;
 }
 
-.right-panel {
-  padding: 20px;
-  overflow-y: auto;
-}
-
-/* --- ส่วนที่แก้ไขสำหรับตารางทางขวา --- */
+/* 8. Table Style (เหมือนเดิม) */
 .right-panel table {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
-  
-  /* ลบ background: #ffffff; เดิมออก */
-
-  /* --- แก้ไข: เปลี่ยนเป็น Gradient สีฟ้าอ่อน --- */
   background: linear-gradient(135deg, #eef7ff, #ffffff);
-  
   border-radius: 16px;
   overflow: hidden;
-  /* ปรับเงาให้เข้ากับธีม */
-  box-shadow: 0 10px 15px -3px rgba(164, 197, 236, 0.1), 0 4px 6px -2px rgba(164, 197, 236, 0.05);
-  border: 1px solid #dbeafe; /* เปลี่ยนขอบเป็นสีฟ้าจางๆ */
+  box-shadow: 0 10px 15px -3px rgba(164, 197, 236, 0.15);
+  border: 1px solid #dbeafe;
 }
 
 th, td {
-  padding: 16px 24px;
-  border-bottom: 1px solid #e2e8f0; /* ปรับสีเส้นคั่นให้เข้ากับธีม */
+  padding: 16px 24px; /* กลับมาใช้ padding ใหญ่เดิม */
+  border-bottom: 1px solid #e2e8f0;
   text-align: left;
 }
 
 th {
-  /* ปรับพื้นหลังหัวตารางให้โปร่งแสงนิดหน่อย เพื่อให้เห็น Gradient พื้นหลังทะลุขึ้นมา */
-  background: rgba(241, 246, 250, 0.7); 
-  color: #475569;
+  background: rgba(241, 245, 249, 0.8);
+  color: #1e40af;
   font-weight: 600;
   font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
   text-transform: uppercase;
-  font-size: 0.85rem;
   letter-spacing: 0.05em;
-  backdrop-filter: blur(5px); /* เพิ่ม effect เบลอให้หัวตารางดูหรูขึ้น (optional) */
+  backdrop-filter: blur(4px);
 }
 
 td {
-    color: #334155;
-    font-weight: 500;
+  color: #475569;
+  font-weight: 500;
+  font-size: 0.95rem; /* ขนาดฟอนต์เดิม (ใหญ่) */
 }
 
 tr:last-child td {
@@ -125,6 +196,6 @@ tr:last-child td {
 }
 
 tr:hover {
-  background: rgba(219, 234, 254, 0.5); /* ปรับสีตอน Hover เป็นสีฟ้าอ่อนโปร่งแสง */
+  background: rgba(219, 234, 254, 0.5);
   transition: background 0.2s ease;
 }
