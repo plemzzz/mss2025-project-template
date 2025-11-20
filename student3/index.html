@@ -1,50 +1,43 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MMS2025</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f4; }
-        .container { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        h1 { color: #333; border-bottom: 2px solid #007bff; padding-bottom: 10px; }
-        .metric-box { border: 1px solid #ddd; padding: 15px; margin-bottom: 15px; border-radius: 5px; background-color: #f9f9f9; }
-        .value { font-size: 2.2em; font-weight: bold; color: #007bff; display: block; margin-top: 5px; }
-        .info { font-size: 0.9em; color: #666; }
-    </style>
+    <meta charset="UTF-8" />
+    <title>System Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
 <div class="container">
-    <h1>Status Server Update (Live)</h1>
-    <p class="info">
-        Lastupdate at <span id="timestamp">Loading</span>
-    </p>
+    <h1>System Status Dashboard</h1>
+    <p id="datetime"></p>
 
-    <div class="metric-box">
-        <h2>CPU Utilization</h2>
-        <div class="value"><span id="cpu_usage">--</span> %</div>
+    <div class="section">
+        <h2>System Information</h2>
+        <p><strong>OS:</strong> <span id="os"></span></p>
+        <p><strong>Kernel:</strong> <span id="kernel"></span></p>
+        <p><strong>CPU:</strong> <span id="cpu"></span></p>
+        <p><strong>GPU:</strong> <span id="gpu"></span></p>
+        <p><strong>Uptime:</strong> <span id="uptime"></span></p>
     </div>
 
-    <div class="metric-box">
-        <h2>Memory Usage (RAM)</h2>
-        <div class="value"><span id="mem_usage_per">--</span> %</div>
-        <div class="info">
-            <span id="mem_used_mb">--</span> MB /Out of <span id="mem_total_mb">--</span> MB
-        </div>
-    </div>
+    <div class="section">
+        <h2>Usage</h2>
 
-    <div class="metric-box">
-        <h2>Disk Usage (Root '/')</h2>
-        <div class="value"><span id="disk_usage_gb">--</span></div>
-        <div class="info">
-            Total <span id="disk_total_gb">--</span> Used <span id="disk_used_per">--</span>
-        </div>
-    </div>
+        <!-- CPU -->
+        <p><strong>CPU Usage:</strong> <span id="cpu_used_text"></span>%</p>
+        <div class="progress"><div id="cpu_bar" class="progress-bar"></div></div>
 
+        <!-- Memory -->
+        <p><strong>Memory Usage:</strong> <span id="mem_used_text"></span>%</p>
+        <div class="progress"><div id="mem_bar" class="progress-bar"></div></div>
+
+        <!-- Disk -->
+        <p><strong>Disk Usage:</strong> <span id="disk_used_text"></span></p>
+        <div class="progress"><div id="disk_bar" class="progress-bar"></div></div>
+    </div>
 </div>
 
 <script src="script.js"></script>
-
 </body>
 </html>
+
