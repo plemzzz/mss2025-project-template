@@ -29,6 +29,13 @@ DiskTotal=$( df -h | grep '^/' | cut -d' ' -f9)
 
 echo "Storage Usage $DiskUsed/$DiskTotal"
 
+
+os=$(neofetch --stdout | grep "OS:" | cut -d: -f2- | xargs)
+kernel=$(neofetch --stdout | grep "Kernel:" | cut -d: -f2- | xargs)
+cpu=$(neofetch --stdout | grep "CPU:" | cut -d: -f2- | xargs)
+gpu=$(neofetch --stdout | grep "GPU:" | cut -d: -f2- | xargs)
+upTime=$(neofetch --stdout | grep "Uptime:" | cut -d: -f2- | xargs)
+
 cat > $JSON_FILE << EOF
 {
   "month": "$month",
@@ -40,7 +47,11 @@ cat > $JSON_FILE << EOF
   "mem_used_mb": "$MemUsed",
   "mem_total_mb": "$MemTotal",
   "disk_used_gb": "$DiskUsed",
-  "disk_total_gb": "$DiskTotal"
+  "disk_total_gb": "$DiskTotal",
+  "os": "$os",
+  "kernel": "$kernel",
+  "cpu": "$cpu",
+  "gpu": "$gpu",
+  "upTime": "$upTime",
 }
 EOF
-
