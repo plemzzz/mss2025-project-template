@@ -4,59 +4,188 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ubuntu Server Monitoring</title>
-    <!-- Import Google Font: Ubuntu -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Link to your stylesheet -->
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- Reset & Base --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Ubuntu', sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            min-height: 100vh;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* ให้เริ่มจากด้านบน */
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px; /* ขยายความกว้างให้พอดีกับ 4 คอลัมน์ */
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2d3436;
+            margin-bottom: 50px;
+        }
+
+        /* --- GRID SYSTEM (4 คอลัมน์) --- */
+        .card-grid {
+            display: grid;
+            /* แบ่งเป็น 4 ช่องเท่ากัน สำหรับ Student 1-8 จะได้ 2 แถวพอดี */
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        /* --- CARD STYLE --- */
+        .server-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            height: 90px; /* ความสูงตอนปิด */
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            text-align: left;
+            text-decoration: none;
+            display: block;
+        }
+
+        .server-card:hover {
+            height: 320px; /* ความสูงตอนเปิด */
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
+            z-index: 10;
+        }
+
+        .card-header {
+            background-color: #000;
+            color: #fff;
+            padding: 0 20px;
+            height: 90px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        .card-header::after {
+            content: '▼';
+            position: absolute;
+            right: 20px;
+            top: 38%;
+            font-size: 12px;
+            opacity: 0.5;
+            transition: transform 0.3s;
+        }
+
+        .server-card:hover .card-header::after {
+            transform: rotate(180deg);
+            opacity: 1;
+        }
+
+        .card-header h2 { font-size: 1.2rem; margin-bottom: 4px; font-weight: 700; }
+        .card-header span { font-size: 0.8rem; opacity: 0.7; font-weight: 300; }
+
+        .card-body {
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(-15px);
+            transition: all 0.3s ease 0.1s;
+        }
+
+        .server-card:hover .card-body {
+            opacity: 1;
+            transform: translateY(0);
+	    height: 800px;
+        }
+
+        .card-body h3 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #000;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+        }
+
+        .card-body ul { list-style-type: disc; padding-left: 18px; color: #555; }
+        .card-body li { margin-bottom: 8px; font-size: 0.75rem; font-weight: 500; text-transform: uppercase; }
+
+        /* --- Responsive Breakpoints --- */
+        @media (max-width: 1200px) {
+            .card-grid { grid-template-columns: repeat(3, 1fr); } /* จอกลางๆ เหลือ 3 */
+        }
+        @media (max-width: 900px) {
+            .card-grid { grid-template-columns: repeat(2, 1fr); } /* แท็บเล็ต เหลือ 2 */
+        }
+        @media (max-width: 600px) {
+            .card-grid { grid-template-columns: 1fr; } /* มือถือ เหลือ 1 */
+        }
+        
+        /* แยกส่วน Section Header เล็กน้อย */
+        .section-title {
+            text-align: left;
+            font-size: 1.5rem;
+            margin: 40px 0 20px 0;
+            padding-left: 10px;
+            border-left: 5px solid #000;
+        }
+    </style>
 </head>
 <body>
+
     <div class="container">
         <h1>Welcome to Ubuntu Server Monitoring!</h1>
         
-        <div class="button-container">
-            <!-- Button linking to student1's page -->
-            <a href="./student1/student1.html" class="btn">
-                Student 1's Server
-            </a>
+      
+        <div class="card-grid">
             
-            <!-- Button linking to student2's page -->
-            <a href="./student2/student2.html" class="btn">
-                Student 2's Server
+            <a href="./student1/student1.html" class="server-card">
+                <div class="card-header"><h2>Student 1</h2><span>ID: 67070003</span></div>
+		<div class="card-body"><h3>Monitoring Stats:</h3><ul><li>CPU USAGE</li><li>MEMORY USAGE</li><li>STORAGE USAGE</li><li>LAST TIME UPDATE</li>
+				<li>SYSTEM UPTIME</li><li>KERNEL VERSION</li></ul></div>
+	    </a>
+            <a href="./student2/student2.html" class="server-card">
+                <div class="card-header"><h2>Student 2</h2><span>ID: 67070030</span></div>
+		<div class="card-body"><h3>Monitoring Stats:</h3><ul><li>CPU USAGE</li><li>MEMORY USAGE</li><li>STORAGE USAGE</li><li>LAST TIME UPDATE</li>
+				<li>HOST</li><li>IP</li><li>RUNTIME</li></ul></div>
             </a>
-            
-            <!-- Button linking to student3's page -->
-            <a href="./student3/student3.html" class="btn">
-                Student 3's Server
+            <a href="./student3/student3.html" class="server-card">
+                <div class="card-header"><h2>Student 3</h2><span>ID: 67070040</span></div>
+                <div class="card-body"><h3>Monitoring Stats:</h3><ul><li>CPU USAGE</li><li>MEMORY USAGE</li><li>STORAGE USAGE</li><li>LAST TIME UPDATE</li></ul></div>
             </a>
-
-            <!-- Button linking to student4's page -->
-            <a href="./student4/student4.html" class="btn">
-                Student 4's Server
-            </a>
-
-	   <!-- Button linking to student5's page -->
-            <a href="./student5/student5.html" class="btn">
-                Student 5's Server
-            </a>
-
-	    <!-- Button linking to student6's page -->
-            <a href="./student6/student6.html" class="btn">
-                Student 6's Server
+            <a href="./student4/student4.html" class="server-card">
+                <div class="card-header"><h2>Student 4</h2><span>ID: 67070157</span></div>
+                <div class="card-body"><h3>Monitoring Stats:</h3><ul><li>CPU USAGE</li><li>MEMORY USAGE</li><li>STORAGE USAGE</li><li>LAST TIME UPDATE</li></ul></div>
             </a>
 
-	    <!-- Button linking to student7's page -->
-            <a href="./student7/student7.html" class="btn">
-                Student 7's Server
+            <a href="./student5/student5.html" class="server-card">
+                <div class="card-header"><h2>Student 5</h2><span>ID: 67070207</span></div>
+                <div class="card-body"><h3>Monitoring Stats:</h3><ul><li>CPU USAGE</li><li>MEMORY USAGE</li><li>STORAGE USAGE</li><li>LAST TIME UPDATE</li></ul></div>
             </a>
-
-	    <!-- Button linking to student8's page -->
-            <a href="./student8/student8.html" class="btn">
-                Student 8's Server
+            <a href="./student6/student6.html" class="server-card">
+                <div class="card-header"><h2>Student 6</h2><span>ID: 67070220</span></div>
+                <div class="card-body"><h3>Monitoring Stats:</h3><ul><li>CPU USAGE</li><li>MEMORY USAGE</li><li>STORAGE USAGE</li><li>LAST TIME UPDATE</li></ul></div>
+            </a>
+            <a href="./student7/student7.html" class="server-card">
+                <div class="card-header"><h2>Student 7</h2><span>ID: 67070286</span></div>
+                <div class="card-body"><h3>Monitoring Stats:</h3><ul><li>CPU USAGE</li><li>MEMORY USAGE</li><li>STORAGE USAGE</li><li>LAST TIME UPDATE</li></ul></div>
+            </a>
+            <a href="./student8/student8.html" class="server-card">
+                <div class="card-header"><h2>Student 8</h2><span>ID: 67070091</span></div>
+                <div class="card-body"><h3>Monitoring Stats:</h3><ul><li>CPU USAGE</li><li>MEMORY USAGE</li><li>STORAGE USAGE</li><li>LAST TIME UPDATE</li></ul></div>
             </a>
 
         </div>
     </div>
+
 </body>
 </html>

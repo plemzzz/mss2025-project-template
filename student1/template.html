@@ -41,46 +41,46 @@
         <div class="metric-card">
             <div class="header">
                 <span>🖥️ CPU Usage</span>
-                <span class="value-text">4.3%</span>
+                <span class="value-text">{{CPU_VAL}}%</span>
             </div>
             <div class="progress-bg">
-                <div class="progress-fill fill-cpu" style="width: 4.3%;"></div>
+                <div class="progress-fill fill-cpu" style="width: {{CPU_VAL}}%;"></div>
             </div>
         </div>
 
         <div class="metric-card">
             <div class="header">
                 <span>🧠 Memory Usage</span>
-                <span class="value-text">13% (512MB / 3868MB)</span>
+                <span class="value-text">{{MEM_VAL}}% ({{MEM_TXT}})</span>
             </div>
             <div class="progress-bg">
-                <div class="progress-fill fill-mem" style="width: 13%;"></div>
+                <div class="progress-fill fill-mem" style="width: {{MEM_VAL}}%;"></div>
             </div>
         </div>
 
         <div class="metric-card">
             <div class="header">
                 <span>💾 Disk Storage (/)</span>
-                <span class="value-text">40%</span>
+                <span class="value-text">{{DISK_VAL}}</span>
             </div>
             <div class="progress-bg">
-                <div class="progress-fill fill-disk" style="width: 40%;"></div>
+                <div class="progress-fill fill-disk" style="width: {{DISK_VAL}};"></div>
             </div>
         </div>
 
         <div class="info-grid">
             <div class="info-item">
                 <span class="info-label">⏳ System Uptime</span>
-                <span class="info-val">up 3 hours, 37 minutes</span>
+                <span class="info-val">{{UPTIME}}</span>
             </div>
             <div class="info-item">
                 <span class="info-label">🐧 Kernel Version</span>
-                <span class="info-val">6.8.0-87-generic</span>
+                <span class="info-val">{{KERNEL}}</span>
             </div>
         </div>
 
         <div class="footer">
-            Last updated: Thu Nov 20 07:00:01 PM +07 2025
+            Last updated: {{LAST_UPDATED}}
         </div>
     </div>
 
