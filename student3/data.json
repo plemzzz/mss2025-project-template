@@ -1,17 +1,17 @@
 {
   "month": "Nov",
   "day": "20",
-  "time": "01:23:45",
+  "time": "01:41:16",
   "year": "2025",
-  "cpu_used": "0",
-  "mem_used_per": "4.77",
-  "mem_used_mb": "188844",
-  "mem_total_mb": "3437308",
+  "cpu_used": ".51",
+  "mem_used_per": "4.95",
+  "mem_used_mb": "196256",
+  "mem_total_mb": "3406344",
   "disk_used_gb": "6.7G",
   "disk_total_gb": "20G",
   "os": "Ubuntu 24.04.3 LTS x86_64",
   "kernel": "6.8.0-87-generic",
   "cpu": "AMD Ryzen 5 3550H with Radeon Vega Mobile Gfx (2) @ 2.096GHz",
   "gpu": "00:0f.0 VMware SVGA II Adapter",
-  "upTime": "5 hours, 2 mins",
+  "upTime": "5 hours, 20 mins"
 }

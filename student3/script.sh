@@ -52,6 +52,6 @@ cat > $JSON_FILE << EOF
   "kernel": "$kernel",
   "cpu": "$cpu",
   "gpu": "$gpu",
-  "upTime": "$upTime",
+  "upTime": "$upTime"
 }
 EOF
